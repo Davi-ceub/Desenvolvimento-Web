@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Biblioteca{% endblock %}</title>
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --card: #fff;
+            --text: #1a1d23;
+            --muted: #5c6370;
+            --accent: #2563eb;
+            --border: #e2e5eb;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: system-ui, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+        header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        nav {
+            margin-top: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        nav a:hover { text-decoration: underline; }
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+        }
+        h2 {
+            margin: 0 0 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        tbody tr:hover { background: #fafbfc; }
+        .hint {
+            color: var(--muted);
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'inicio' %}" style="color:inherit;text-decoration:none;">bibliotecaDB</a></h1>
+        <nav>
+            <a href="{% url 'listar_usuarios' %}">Usuários</a>
+            <a href="{% url 'listar_autores' %}">Autores</a>
+            <a href="{% url 'listar_categorias' %}">Categorias</a>
+            <a href="{% url 'listar_livros' %}">Livros</a>
+            <a href="{% url 'listar_emprestimos' %}">Empréstimos</a>
+            <a href="{% url 'questoes' %}">Questões</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

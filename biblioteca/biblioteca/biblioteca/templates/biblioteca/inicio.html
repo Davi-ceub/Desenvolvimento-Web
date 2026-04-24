@@ -1,0 +1,12 @@
+{% extends "biblioteca/base.html" %}
+
+{% block title %}Início — Biblioteca{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Consultas ao banco bibliotecaDB</h2>
+    <p>Use o menu acima para acessar cada entidade. Implemente as views em <code>views.py</code>
+    para executar SQL no alias <code>biblioteca</code> (<code>connections['biblioteca']</code>) e passar os resultados ao template correspondente.</p>
+    <p class="hint">Tabelas no MySQL: <code>usuarios</code>, <code>autores</code>, <code>categorias</code>, <code>livros</code>, <code>emprestimos</code>.</p>
+</div>
+{% endblock %}

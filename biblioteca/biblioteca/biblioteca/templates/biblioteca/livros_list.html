@@ -1,0 +1,36 @@
+{% extends "biblioteca/base.html" %}
+
+{% block title %}Livros — Biblioteca{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Livros</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>titulo</th>
+                <th>ano_publicacao</th>
+                <th>categoria_id</th>
+                <th>autor_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for l in livros %}
+            <tr>
+                <td>{{ l.id }}</td>
+                <td>{{ l.titulo }}</td>
+                <td>{{ l.ano_publicacao }}</td>
+                <td>{{ l.categoria_id }}</td>
+                <td>{{ l.autor_id }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum registro (preencha o contexto <code>livros</code> na view).</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="hint">Espera-se um iterável com os campos da tabela <code>livros</code>.</p>
+</div>
+{% endblock %}

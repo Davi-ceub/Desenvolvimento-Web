@@ -1,0 +1,30 @@
+{% extends "biblioteca/base.html" %}
+
+{% block title %}Autores — Biblioteca{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Autores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in autores %}
+            <tr>
+                <td>{{ a.id }}</td>
+                <td>{{ a.nome }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">Nenhum registro (preencha o contexto <code>autores</code> na view).</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="hint">Espera-se um iterável com <code>id</code> e <code>nome</code>.</p>
+</div>
+{% endblock %}

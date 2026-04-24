@@ -1,0 +1,36 @@
+{% extends "biblioteca/base.html" %}
+
+{% block title %}Empréstimos — Biblioteca{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Empréstimos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>usuario_id</th>
+                <th>livro_id</th>
+                <th>data_emprestimo</th>
+                <th>data_devolucao</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in emprestimos %}
+            <tr>
+                <td>{{ e.id }}</td>
+                <td>{{ e.usuario_id }}</td>
+                <td>{{ e.livro_id }}</td>
+                <td>{{ e.data_emprestimo }}</td>
+                <td>{{ e.data_devolucao }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum registro (preencha o contexto <code>emprestimos</code> na view).</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="hint">Espera-se um iterável com os campos da tabela <code>emprestimos</code>.</p>
+</div>
+{% endblock %}
