@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto Mágico</title>
+</head>
+<body>
+
+    <p id="texto-magico">Clique no botão para fazer a mágica!</p>
+
+    <button id="btn-mudar">Fazer Mágica</button>
+
+    <script>
+
+        // Selecionando os elementos pelos IDs
+        const paragrafo = document.getElementById("texto-magico");
+        const botao = document.getElementById("btn-mudar");
+
+        // Adicionando evento de clique ao botão
+        botao.addEventListener("click", function() {
+
+            // Mudando o texto
+            paragrafo.innerText = "A mágica aconteceu!";
+
+            // Alterando a cor do texto
+            paragrafo.style.color = "red";
+
+            // Alterando o tamanho da fonte
+            paragrafo.style.fontSize = "24px";
+
+        });
+
+    </script>
+
+</body>
+</html>
