@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    <h1>lista de Produtos</h1>
+    {% for produto in produtos %}
+        <label>Produto: <a href="{% url 'detalhar_produto' produto.pk %}"></a>{{ produto.nome }} (R${{ produto.preco }})</label>
+        <br/>
+    {% endfor %}
+
+{% endblock %}
